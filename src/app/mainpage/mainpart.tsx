@@ -9,7 +9,7 @@ import { MainContent } from "@/const/UConst";
 
 const MainPart = () => {
   return (
-    <div className="container flex flex-row">
+    <div className="container flex flex-row mb-20">
       <div className="card card-side">
         <div className="card_top card-body">
           <div className="card-title">
