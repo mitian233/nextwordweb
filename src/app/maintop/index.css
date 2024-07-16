@@ -1,0 +1,117 @@
+* {
+    box-sizing: border-box;
+  }
+  .flex-row {
+    flex-direction: row;
+    display: flex;
+  }
+  .flex-col {
+    flex-direction: column;
+    display: flex;
+  }
+  .justify-start {
+    justify-content: flex-start;
+    display: flex;
+  }
+  .justify-center {
+    justify-content: center;
+    display: flex;
+  }
+  .justify-end {
+    justify-content: flex-end;
+    display: flex;
+  }
+  .justify-between {
+    justify-content: space-between;
+    display: flex;
+  }
+  .items-start {
+    align-items: flex-start;
+    display: flex;
+  }
+  .items-end {
+    align-items: flex-end;
+    display: flex;
+  }
+  .items-center {
+    align-items: center;
+    display: flex;
+  }
+  .no-shrink {
+    flex-shrink: 0;
+  }
+  .maintoptop {
+    background-color: #d9d9d9;
+    width: 1728px;
+    height: 1117px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+  }
+  .video {
+    width: 1728px;
+    height: 897px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .center {
+    width: 1728px;
+    height: 1117px;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  .word {
+    width: 1728px;
+    height: 224px;
+    position: absolute;
+    top: 893px;
+    left: 0;
+  }
+  .text {
+    color: #3d3d3d;
+    width: auto;
+    height: 159px;
+    font-family: Source Han Sans;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 32px;
+    position: absolute;
+    top: 46px;
+    left: 313px;
+    right: -4px;
+  }
+  .seal_group {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 268px;
+    height: 139px;
+    display: flex;
+    position: absolute;
+    top: 36px;
+    left: 45px;
+  }
+  .text_1 {
+    color: #3d3d3d;
+    white-space: pre;
+    flex-shrink: 0;
+    width: 268px;
+    height: 58px;
+    font-family: Source Han Sans;
+    font-size: 48px;
+    font-weight: 900;
+    line-height: 70px;
+  }
+  .text_2 {
+    color: rgba(43, 43, 43, 0.8);
+    white-space: pre;
+    flex-shrink: 0;
+    font-family: Source Han Sans;
+    font-size: 24px;
+    font-weight: 400;
+    line-height: 35px;
+  }
+  
