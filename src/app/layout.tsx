@@ -3,6 +3,10 @@ import { Inter as FontSans } from "next/font/google";
 import "./globals.css";
 
 import { cn } from "@/lib/utils";
+import React from "react";
+import UJoystick from "@/components/UJoystick";
+
+import MainContent from "../../public/assets/data/main.json";
 
 // const inter = Inter({ subsets: ["latin"] });
 const fontSans = FontSans({
@@ -27,7 +31,8 @@ export default function RootLayout({
           "min-h-screen bg-background font-sans antialiased",
           fontSans.variable
         )}>
-        {children}
+        <div>{children}</div>
+        <UJoystick />
       </body>
     </html>
   );

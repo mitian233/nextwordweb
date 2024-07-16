@@ -1,7 +1,16 @@
-import Image from "next/image";
+"use client";
+// pages/index.js
+import MainPart from "./mainpage/mainpart";
+import React from "react";
+import MainBottom from "./mainbottom/mainbottom";
+import MainTop from "./maintop/maintop";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24"></main>
+    <main className="min-h-screen px-20">
+      <MainTop />
+      <MainPart />
+      <MainBottom />
+    </main>
   );
 }
