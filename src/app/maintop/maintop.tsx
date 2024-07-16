@@ -5,17 +5,20 @@ import React from "react";
 import "./index.css";
 import ULearnSegment from "@/components/ULearnSegment";
 import { MainContent } from "@/const/UConst";
+import { GiphyGIF } from "@/const/UImage";
+
+import Image from "next/image";
 
 const MainTop = () => {
   return (
     <div className="container flex flex-row mb-20">
       <div className="maintop card">
-        <video
-          className="video card-title"
-          src="../../public/assets/video/web.mp4"
-          controls
-          autoPlay
-          loop></video>
+        <Image
+          src={GiphyGIF.src}
+          alt="Context Image"
+          width={GiphyGIF.width}
+          height={GiphyGIF.height}
+        />
         <div className="card-title card-body bg-current">
           <div className="text-white">
             <ULearnSegment
