@@ -13,12 +13,16 @@ const MainTop = () => {
   return (
     <div className="container flex flex-row mb-20">
       <div className="maintop card">
-        <Image
-          src={GiphyGIF.src}
-          alt="Context Image"
-          width={GiphyGIF.width}
-          height={GiphyGIF.height}
-        />
+        {/* <div>
+          <Image
+            className="w-full"
+            src={GiphyGIF.src}
+            alt="Context Image"
+            layout="fill"
+            objectFit="cover"
+            fill
+          />
+        </div> */}
         <div className="card-title card-body bg-current">
           <div className="text-white">
             <ULearnSegment

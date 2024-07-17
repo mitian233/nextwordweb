@@ -15,8 +15,8 @@ const MainPart = () => {
       <div className="card card-side">
         <div className="card_top card-body">
           <div className="card-title">
-            <div className="flex flex-row gap-2">
-              <div className="w-2/3 flex-1">
+            <div className="flex flex-col md:flex-row gap-2">
+              <div className="w-full md:w-2/3 flex-1">
                 <Image
                   src={GiphyGIF.src}
                   alt="Context Image"
@@ -24,7 +24,7 @@ const MainPart = () => {
                   height={GiphyGIF.height}
                 />
               </div>
-              <div className="right_content w-1/3 flex-auto">
+              <div className="md:right_content w-full md:w-1/3 flex-auto">
                 <ULearnSegment
                   word={MainContent.en.word}
                   pronunciation={MainContent.en.pronunciation}

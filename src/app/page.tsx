@@ -7,10 +7,16 @@ import MainTop from "./maintop/maintop";
 
 export default function Home() {
   return (
-    <main className="min-h-screen px-20">
-      <MainTop />
-      <MainPart />
-      <MainBottom />
+    <main className="min-h-screen md:px-20">
+      <div className="h-screen">
+        <MainTop />
+      </div>
+      <div className="h-screen">
+        <MainPart />
+      </div>
+      <div className="h-screen">
+        <MainBottom />
+      </div>
     </main>
   );
 }

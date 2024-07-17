@@ -47,13 +47,24 @@ const UJoystick: React.FC = () => {
 
   return (
     <div className="fixed bottom-0 right-0 mr-4 mb-4 text-center">
-      <Joystick
-        size={100}
-        baseColor="#f1f1f1"
-        stickColor="#4CAF50"
-        move={handleJoystickMove}
-        stop={handleJoystickStop}
-      />
+      <div className="block md:hidden transition duration-300 ease-in-out transform">
+        <Joystick
+          size={64}
+          baseColor="#f1f1f1"
+          stickColor="#4CAF50"
+          move={handleJoystickMove}
+          stop={handleJoystickStop}
+        />
+      </div>
+      <div className="hidden md:block transition duration-300 ease-in-out transform">
+        <Joystick
+          size={100}
+          baseColor="#f1f1f1"
+          stickColor="#4CAF50"
+          move={handleJoystickMove}
+          stop={handleJoystickStop}
+        />
+      </div>
       {direction ? <span className="kbd mt-1">{direction}</span> : ""}
     </div>
   );
