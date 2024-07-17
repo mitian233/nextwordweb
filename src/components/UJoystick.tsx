@@ -1,12 +1,25 @@
 "use client";
+import { WordsContext } from "@/context/words";
+import { Word } from "@/lib/word";
+import { useMutation } from "@tanstack/react-query";
+import { nanoid } from "nanoid";
 import { useRouter } from "next/navigation";
-import React from "react";
+import React, { useContext } from "react";
 import {
   IJoystickUpdateEvent,
   Joystick,
 } from "react-joystick-component/build/lib/Joystick";
 
 const UJoystick: React.FC = () => {
+  const {
+    Words,
+    addWord,
+    removeWord,
+    updateWord,
+    isWordUpdating,
+    setIsWordUpdating,
+  } = useContext(WordsContext);
+
   const router = useRouter();
 
   const [direction, setDirection] = React.useState("");
@@ -18,14 +31,65 @@ const UJoystick: React.FC = () => {
     }
   };
 
-  const getDistanceFromBottom = () => {
-    const scrollHeight = document.documentElement.scrollHeight;
-    const clientHeight = document.documentElement.clientHeight;
-    const scrollTop = window.scrollY || document.documentElement.scrollTop;
+  const { mutate: sendReq, isPending } = useMutation({
+    mutationFn: async (word: Word) => {
+      const response = await fetch("/api/word", {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        // body: JSON.stringify({ messages: [word] }),
+      });
 
-    const distanceFromBottom = scrollHeight - clientHeight - scrollTop;
-    return distanceFromBottom;
-  };
+      return response.body;
+    },
+    // add user input immediately
+    onMutate(word) {
+      addWord(word);
+    },
+
+    onSuccess: async (stream) => {
+      if (!stream) throw new Error("No Stream Found");
+
+      // add new message to context
+      const id = nanoid();
+      const responseMessage: Word = {
+        id,
+        isUserMessage: false,
+        wordJson: "",
+      };
+      addWord(responseMessage);
+      setIsWordUpdating(true);
+
+      // read the stream and update the message
+      const reader = stream.getReader();
+      const decoder = new TextDecoder();
+      let done = false;
+
+      while (!done) {
+        const { value, done: doneReading } = await reader.read();
+        done = doneReading;
+        const chunkValue = decoder.decode(value);
+        // console.log(chunkValue);
+        updateWord(id, (prev) => prev + chunkValue);
+      }
+
+      // clean up the text-input after messages updated
+      setIsWordUpdating(false);
+      // setInput("");
+
+      // refocus
+      // setTimeout(() => {
+      //   textareaRef.current?.focus();
+      // }, 10);
+    },
+    onError: (err, message) => {
+      console.log(err);
+      // toast.error("Something went wrong. Please try again.");
+      removeWord(message.id);
+      // textareaRef.current?.focus();
+    },
+  });
 
   const handleJoystickStop = (event: IJoystickUpdateEvent) => {
     if (event.type === "stop") {
@@ -46,11 +110,13 @@ const UJoystick: React.FC = () => {
           break;
         case "RIGHT":
           console.log("RIGHT");
-          // router.push("/mainright");
+          // router.push("/learn/word");
+
           break;
         case "LEFT":
           console.log("LEFT");
-          // router.push("/mainleft");
+          // router.push("/learn/word");
+
           break;
         default:
           setDirection("");

@@ -4,7 +4,7 @@ import { RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { WagmiProvider } from "wagmi";
 
-import { MessagesProvider } from "@/context/messages";
+import { MessagesProvider } from "@/context/words";
 import { config } from "@/config/config";
 
 const queryClient = new QueryClient();

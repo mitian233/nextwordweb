@@ -9,6 +9,7 @@ import UJoystick from "@/components/UJoystick";
 import MainContent from "../../public/assets/data/main.json";
 import { Navbar } from "../components/navbar";
 import { Providers } from "./provider";
+import DifyChatbot from "@/components/chat/UChatbot";
 
 // const inter = Inter({ subsets: ["latin"] });
 const fontSans = FontSans({
@@ -37,6 +38,7 @@ export default function RootLayout({
           <Navbar
             className={metadata.title?.toString() ?? "NEXT WORD"}></Navbar>
           {children}
+          <DifyChatbot />
           <UJoystick />
         </Providers>
       </body>
