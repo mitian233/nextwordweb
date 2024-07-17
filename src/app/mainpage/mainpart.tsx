@@ -5,13 +5,13 @@ import React from "react";
 import "./index.css";
 
 import ULearnSegment from "@/components/ULearnSegment";
-import { MainContent } from "@/const/UConst";
+import { TestJsonData } from "@/const/UConst";
 import Image from "next/image";
 import { GiphyGIF } from "@/const/UImage";
 
 const MainPart = () => {
   return (
-    <div className="container flex flex-row mb-20">
+    <div className="main-part container flex flex-row mb-20">
       <div className="card card-side">
         <div className="card_top card-body">
           <div className="card-title">
@@ -26,15 +26,15 @@ const MainPart = () => {
               </div>
               <div className="md:right_content w-full md:w-1/3 flex-auto">
                 <ULearnSegment
-                  word={MainContent.en.word}
-                  pronunciation={MainContent.en.pronunciation}
-                  sentence={MainContent.en.sentence}
+                  word={TestJsonData.en.word}
+                  pronunciation={TestJsonData.en.pronunciation}
+                  sentence={TestJsonData.en.sentence}
                 />
               </div>
             </div>
           </div>
           <div className="paragraphs mt-1">
-            <span className="font-serif">{MainContent.en.paragraphs}</span>
+            <span className="font-serif">{TestJsonData.en.paragraphs}</span>
           </div>
         </div>
       </div>

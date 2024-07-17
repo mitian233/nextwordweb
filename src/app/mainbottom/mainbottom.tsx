@@ -4,11 +4,14 @@ import React from "react";
 
 import "./index.css";
 import ULearnSegment from "@/components/ULearnSegment";
-import { MainContent } from "@/const/UConst";
 import { GiphyGIF } from "@/const/UImage";
 import Image from "next/image";
 
-const MainBottom = () => {
+interface MainBottomProps {
+  content: WordJsonData;
+}
+
+const MainBottom: React.FC<MainBottomProps> = ({ content }) => {
   return (
     <div className="container flex flex-row">
       <div className="card card-side">
@@ -25,15 +28,15 @@ const MainBottom = () => {
               </div>
               <div className="md:right_content w-full md:w-1/3 flex-auto">
                 <ULearnSegment
-                  word={MainContent.zh.word}
-                  pronunciation={MainContent.zh.pronunciation}
-                  sentence={MainContent.zh.sentence}
+                  word={content.zh.word}
+                  pronunciation={content.zh.pronunciation}
+                  sentence={content.zh.sentence}
                 />
               </div>
             </div>
           </div>
           <div className="paragraphs mt-1">
-            <span className="font-serif">{MainContent.zh.paragraphs}</span>
+            <span className="font-serif">{content.zh.paragraphs}</span>
           </div>
         </div>
       </div>

@@ -32,7 +32,7 @@ const UGifPlayer: React.FC<UGifPlayerProps> = ({ src, onClick }) => {
   // 根据 controller 的状态渲染不同的 UI
   if (controller.state === "loading") {
     return (
-      <div className="relative w-full h-screen flex items-center justify-center">
+      <div className="items-center justify-center">
         <USkeleton />
       </div>
     );

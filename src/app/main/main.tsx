@@ -1,11 +1,8 @@
-// "use client";
-
-import UGifPlayer from "@/components/player/UGifplayer";
+// // "use client";import UGifPlayer from "@/components/player/UGifplayer";
 import ULearnSegment from "@/components/ULearnSegment";
-import { MainContent } from "@/const/UConst";
 import React from "react";
 import create from "zustand";
-import { StateCreator } from "zustand";
+import UGifPlayer from "@/components/player/UGifplayer";
 
 // Define the store
 interface StoreState {
@@ -42,7 +39,11 @@ const useStore = create<StoreState>((set) => ({
   },
 }));
 
-const Main: React.FC = () => {
+interface MainProps {
+  content: WordJsonData;
+}
+
+const Main: React.FC<MainProps> = ({ content }) => {
   const {
     scrollCount,
     overlayEle1,
@@ -72,12 +73,18 @@ const Main: React.FC = () => {
         <div
           className="relative w-full h-screen overflow-hidden m-4 md:mx-8 md:my-16 pointer-events-none"
           onScroll={handleScroll}>
-          <div className="absolute z-1 bottom-10 w-full flex justify-center text-white">
-            <ULearnSegment
-              word={MainContent.en.word}
-              pronunciation={MainContent.en.pronunciation}
-              sentence={MainContent.en.sentence}
-            />
+          <div className="absolute z-1 bottom-0 w-full flex flex-col items-center text-white">
+            <div className="absolute inset-x-0 bottom-0 h-full w-full bg-black opacity-50 z-0 p-4 md:p-8"></div>
+            <div className="relative z-10 p-4 md:p-8">
+              <ULearnSegment
+                word={content.en.word}
+                pronunciation={content.en.pronunciation}
+                sentence={content.en.sentence}
+              />
+              <div className="paragraphs mt-1">
+                <span className="font-serif">{content.en.paragraphs}</span>
+              </div>
+            </div>
           </div>
           <div className="absolute z-2 top-0 w-full text-center">
             <div className="pt-12"></div>

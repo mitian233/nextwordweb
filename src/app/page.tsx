@@ -1,75 +1,50 @@
 "use client";
 // pages/index.js
 import MainPart from "./mainpage/mainpart";
-import React from "react";
+import React, { useState, useEffect } from "react";
 import MainBottom from "./mainbottom/mainbottom";
-import MainTop from "./maintop/maintop";
 import DifyChatbot from "@/components/chat/UChatbot";
 import Main from "./main/main";
-import ReactDOM from "react-dom";
+import { TestJsonData } from "@/const/UConst";
 
-import {
-  Link,
-  DirectLink,
-  Element,
-  Events,
-  animateScroll,
-  scrollSpy,
-  scroller,
-} from "react-scroll";
+const wordJsonData = TestJsonData as WordJsonData;
+const json_from_api = async () => {
+  try {
+    const requestData: RequestData = { address: "0Xsdfasjfksls" };
 
-const durationFn = function (deltaTop: any) {
-  return deltaTop;
-};
-
-const scrollToTop = () => {
-  animateScroll.scrollToTop();
-};
-const scrollTo = (offset: any) => {
-  scroller.scrollTo("scroll-to-element", {
-    duration: 800,
-    delay: 0,
-    smooth: "easeInOutQuart",
-    offset: offset,
-  });
-};
-const scrollToWithContainer = () => {
-  let goToContainer = new Promise((resolve, reject) => {
-    Events.scrollEvent.register("end", () => {
-      resolve(true);
-      Events.scrollEvent.remove("end");
-    });
-
-    scroller.scrollTo("scroll-container", {
-      duration: 800,
-      delay: 0,
-      smooth: "easeInOutQuart",
-    });
-  });
-
-  goToContainer.then(() =>
-    scroller.scrollTo("scroll-container-second-element", {
-      duration: 800,
-      delay: 0,
-      smooth: "easeInOutQuart",
-      containerId: "scroll-container",
-      offset: 50,
-    })
-  );
+    const jsonData = await processData(requestData);
+    return jsonData;
+  } catch (error) {
+    console.error("Error:", error);
+    return null;
+  }
 };
 
 export default function Home() {
+  const [jsonData, setJsonData] = useState(wordJsonData);
+
+  useEffect(() => {
+    // Fetch data from the API and update the state
+    const fetchData = async () => {
+      const data = await json_from_api();
+      if (data) {
+        setJsonData(data);
+      }
+    };
+    fetchData();
+
+    // Scroll to the MainPart position when the component mounts
+    document.querySelector(".main-top")?.scrollIntoView({ behavior: "smooth" });
+  }, []);
+
   return (
     <main className="min-h-screen md:px-20">
       <DifyChatbot />
-      <div className="h-screen">
-        <Main />
+      <div className="min-h-screen main-top">
+        {jsonData && <Main content={jsonData} />}
       </div>
-      <div className="h-screen">
-        <MainPart />
-      </div>
-      <div className="h-screen">
-        <MainBottom />
+      <div className="min-h-screen main-bottom">
+        {jsonData && <MainBottom content={jsonData} />}
       </div>
     </main>
   );

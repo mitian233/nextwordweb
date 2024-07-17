@@ -1,0 +1,15 @@
+{
+  "en": {
+    "word": "Example",
+    "pronunciation": "ˈɛɡzæmpəl",
+    "sentence": "This is an example sentence.",
+    "paragraphs": "This is an example paragraph."
+  },
+  "zh": {
+    "word": "示例",
+    "pronunciation": "shì lì",
+    "sentence": "这是一个示例句子。",
+    "paragraphs": "这是一个示例段落。"
+  },
+  "gifUrl": "/assets/video/oobb.gif"
+}
