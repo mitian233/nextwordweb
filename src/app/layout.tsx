@@ -9,7 +9,6 @@ import UJoystick from "@/components/UJoystick";
 import MainContent from "../../public/assets/data/main.json";
 import { Navbar } from "../components/navbar";
 import { Providers } from "./provider";
-import DifyChatbot from "@/components/chat/chatbot";
 
 // const inter = Inter({ subsets: ["latin"] });
 const fontSans = FontSans({

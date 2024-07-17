@@ -8,22 +8,17 @@ import { MainContent } from "@/const/UConst";
 import { GiphyGIF } from "@/const/UImage";
 
 import Image from "next/image";
+import UVideoPlayer from "@/components/player/UVideoplayer";
+import UGifPlayer from "@/components/player/UGifplayer";
 
 const MainTop = () => {
   return (
     <div className="container flex flex-row mb-20">
       <div className="maintop card">
-        {/* <div>
-          <Image
-            className="w-full"
-            src={GiphyGIF.src}
-            alt="Context Image"
-            layout="fill"
-            objectFit="cover"
-            fill
-          />
-        </div> */}
-        <div className="card-title card-body bg-current">
+        <div className="card-body">
+          <UGifPlayer src={"/assets/video/giphy.gif"}/>
+        </div>
+        <div className="card-title bg-current">
           <div className="text-white">
             <ULearnSegment
               word={MainContent.en.word}
