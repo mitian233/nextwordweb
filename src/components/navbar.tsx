@@ -25,20 +25,18 @@ export const Navbar = ({ className }: { className: String }) => {
         "flex items-center justify-between bg-transparent p-4",
         className
       )}>
-      <Link href="/" className="flex items-center">
+      <Link href="/" className="flex items-center place-content-center">
         <div className="relative mr-4 h-8 w-8">
           <Image
-            width={64}
-            height={64}
+            width={100}
+            height={100}
             alt="Logo"
-            src="/webLogo.png"
+            src="/NextWordLogo.png"
             priority
             sizes=""
           />
         </div>
-        <h1 className={cn("text-2xl font-bold text-white", font.className)}>
-          Travel on Chain
-        </h1>
+        <h1 className={cn("text-2xl font-bold", font.className)}>NEXT WORD</h1>
       </Link>
       <div className="hidden lg:flex lg:gap-x-12">
         {" "}
