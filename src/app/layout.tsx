@@ -7,6 +7,8 @@ import React from "react";
 import UJoystick from "@/components/UJoystick";
 
 import MainContent from "../../public/assets/data/main.json";
+import { Navbar } from "../components/navbar";
+import { Providers } from "./provider";
 
 // const inter = Inter({ subsets: ["latin"] });
 const fontSans = FontSans({
@@ -31,7 +33,10 @@ export default function RootLayout({
           "min-h-screen bg-background font-sans antialiased",
           fontSans.variable
         )}>
-        <div>{children}</div>
+        <Navbar className={metadata.title?.toString() ?? "NEXT WORD"}></Navbar>
+        <div>
+          <Providers>{children}</Providers>
+        </div>
         <UJoystick />
       </body>
     </html>
