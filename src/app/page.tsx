@@ -5,10 +5,10 @@ import React, { useState, useEffect, useContext } from "react";
 import MainBottom from "./mainbottom/mainbottom";
 import DifyChatbot from "@/components/chat/UChatbot";
 import Main from "./main/main";
-import { TestJsonData } from "@/const/UConst";
 import { WordsContext } from "@/context/words";
+import {wordDataAtom} from "@/lib/atom";
+import {useAtom} from "jotai";
 
-const wordJsonData = TestJsonData as WordJsonData;
 const json_from_api = async () => {
   try {
     // const requestData: RequestData = { address: "0Xsdfasjfksls" };
@@ -33,7 +33,7 @@ export default function Home() {
   const { Words } = useContext(WordsContext);
   const inverseWords = [...Words].reverse();
 
-  const [jsonData, setJsonData] = useState(wordJsonData);
+  const [wordData, setWordData] = useAtom(wordDataAtom);
 
   useEffect(() => {
     // Fetch data from the API and update the state
@@ -50,7 +50,7 @@ export default function Home() {
     if (inverseWords[0].wordJson) {
       // 使用 JSON.parse() 方法将 JSON 字符串解析为对象实例
       const data: WordJsonData = JSON.parse(inverseWords[0].wordJson);
-      setJsonData(data);
+      setWordData(data);
     }
 
     // Scroll to the MainPart position when the component mounts
@@ -60,10 +60,10 @@ export default function Home() {
   return (
     <main className="min-h-screen md:px-20">
       <div className="min-h-screen main-top">
-        {jsonData && <Main content={jsonData} />}
+        {wordData && <Main content={wordData} />}
       </div>
       <div className="min-h-screen main-bottom">
-        {jsonData && <MainBottom content={jsonData} />}
+        {wordData && <MainBottom content={wordData} />}
       </div>
     </main>
   );

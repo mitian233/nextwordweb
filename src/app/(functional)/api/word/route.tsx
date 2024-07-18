@@ -1,17 +1,17 @@
-// const requestWordData = async () => {
+// export const requestWordData = async () => {
 //   try {
-//     const response = await fetch("http://3ewi7z.natappfree.cc/getmsg");
+//     const response = await fetch("http://pfybgc.natappfree.cc/getmsg");
 //     const data: WordJsonData = await response.json();
-
+//     return data
 //     // 将 data 保存到 words 中
 //   } catch (error) {
 //     console.error("Error fetching word data:", error);
 //   }
 // };
 
-export async function GET(request: Request) {
+export async function getWordData(request?: Request) {
   try {
-    const res = await fetch("http://3ewi7z.natappfree.cc/getmsg", {
+    const res = await fetch("http://pfybgc.natappfree.cc/getmsg", {
       method: "GET",
       // headers: {
       //   Authorization: `Bearer ${process.env.PINATA_JWT}`,
