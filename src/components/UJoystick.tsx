@@ -9,7 +9,6 @@ import {
   IJoystickUpdateEvent,
   Joystick,
 } from "react-joystick-component/build/lib/Joystick";
-import { getWordData } from "@/app/(functional)/api/word/route";
 import { wordDataAtom } from "@/lib/atom";
 import { useAtom } from "jotai";
 import {

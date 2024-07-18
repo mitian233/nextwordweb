@@ -5,12 +5,7 @@ import React, { Suspense } from "react";
 import "./index.css";
 import ULearnSegment from "@/components/ULearnSegment";
 import { TestJsonData } from "@/const/UConst";
-import { GiphyGIF } from "@/const/UImage";
-
-import Image from "next/image";
-import UVideoPlayer from "@/components/player/UVideoplayer";
 import UGifPlayer from "@/components/player/UGifplayer";
-import { USkeleton } from "@/components/USkeleton";
 
 const MainTop = () => {
   return (
