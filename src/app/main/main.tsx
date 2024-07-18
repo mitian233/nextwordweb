@@ -68,7 +68,7 @@ const Main: React.FC<MainProps> = ({ content }) => {
     <div className="relative w-full h-screen overflow-hidden">
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="absolute inset-0 z-0">
-          <UGifPlayer src={imageUrl} />
+          <UGifPlayer src={content.gifUrl} />
         </div>
         <div
           className="relative w-full h-screen overflow-hidden m-4 md:mx-8 md:my-16 pointer-events-none"

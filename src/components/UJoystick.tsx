@@ -4,7 +4,7 @@ import { Word, WordJsonSchema } from "@/lib/word";
 import { useMutation } from "@tanstack/react-query";
 import { nanoid } from "nanoid";
 import { useRouter } from "next/navigation";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import {
   IJoystickUpdateEvent,
   Joystick,
@@ -12,6 +12,14 @@ import {
 import { getWordData } from "@/app/(functional)/api/word/route";
 import { wordDataAtom } from "@/lib/atom";
 import { useAtom } from "jotai";
+import {
+  Castle,
+  Illustrate,
+  Impact,
+  Nextword,
+  Sauce,
+  Scarce,
+} from "@/const/UConst";
 
 const UJoystick: React.FC = () => {
   const {
@@ -27,6 +35,10 @@ const UJoystick: React.FC = () => {
 
   const [direction, setDirection] = React.useState("");
 
+  const [num, setNum] = React.useState(0);
+
+  const Datalist = [Nextword, Illustrate, Castle, Impact, Sauce, Scarce];
+
   const handleJoystickMove = (event: IJoystickUpdateEvent) => {
     if (event.type === "move") {
       console.log("move");
@@ -41,7 +53,6 @@ const UJoystick: React.FC = () => {
         headers: {
           "Content-Type": "application/json",
         },
-        // body: JSON.stringify({ messages: [word] }),
       });
 
       return response.body;
@@ -54,7 +65,6 @@ const UJoystick: React.FC = () => {
     onSuccess: async (stream) => {
       if (!stream) throw new Error("No Stream Found");
 
-      // add new message to context
       const id = nanoid();
       const responseMessage: Word = {
         id,
@@ -64,7 +74,6 @@ const UJoystick: React.FC = () => {
       addWord(responseMessage);
       setIsWordUpdating(true);
 
-      // read the stream and update the message
       const reader = stream.getReader();
       const decoder = new TextDecoder();
       let done = false;
@@ -77,20 +86,11 @@ const UJoystick: React.FC = () => {
         updateWord(id, (prev) => prev + chunkValue);
       }
 
-      // clean up the text-input after messages updated
       setIsWordUpdating(false);
-      // setInput("");
-
-      // refocus
-      // setTimeout(() => {
-      //   textareaRef.current?.focus();
-      // }, 10);
     },
     onError: (err, message) => {
       console.log(err);
-      // toast.error("Something went wrong. Please try again.");
       removeWord(message.id);
-      // textareaRef.current?.focus();
     },
   });
 
@@ -98,7 +98,6 @@ const UJoystick: React.FC = () => {
 
   const handleJoystickStop = async (event: IJoystickUpdateEvent) => {
     if (event.type === "stop") {
-      let data;
       switch (direction) {
         case "FORWARD":
           console.log("FORWARD");
@@ -115,41 +114,10 @@ const UJoystick: React.FC = () => {
           });
           break;
         case "RIGHT":
-          console.log("RIGHT");
-          data = await getWordData();
-          console.log(data);
-          if (data instanceof Response) {
-            // 处理 Response 对象，例如进行数据解析
-            const parsedData: WordJsonData = await data.json();
-            setWordData(parsedData);
-          } else if (typeof data === "object" && data !== null) {
-            // 确保 data 是 WordJsonData 类型的对象
-            setWordData(data as WordJsonData);
-          } else {
-            // data 类型不正确，可以设置为 null，或者抛出错误
-            setWordData(null);
-          }
-          // console.log(data)
-          // router.push("/learn/word");
-
+          getNextWord();
           break;
         case "LEFT":
-          console.log("LEFT");
-          data = await getWordData();
-          console.log(data);
-          if (data instanceof Response) {
-            // 处理 Response 对象，例如进行数据解析
-            const parsedData: WordJsonData = await data.json();
-            setWordData(parsedData);
-          } else if (typeof data === "object" && data !== null) {
-            // 确保 data 是 WordJsonData 类型的对象
-            setWordData(data as WordJsonData);
-          } else {
-            // data 类型不正确，可以设置为 null，或者抛出错误
-            setWordData(null);
-          }
-          // console.log(data)
-          // router.push("/learn/word");
+          getNextWord();
           break;
         default:
           setDirection("");
@@ -157,6 +125,24 @@ const UJoystick: React.FC = () => {
       }
     }
     setDirection("");
+
+    function getNextWord() {
+      console.log("RIGHT: ", num);
+
+      const data: WordJsonData = Datalist[num % Datalist.length];
+
+      // data = await getWordData();
+      console.log(data);
+
+      if (typeof data === "object" && data !== null) {
+        // 确保 data 是 WordJsonData 类型的对象
+        setWordData(data);
+      } else {
+        // data 类型不正确，可以设置为 null，或者抛出错误
+        setWordData(null);
+      }
+      setNum(num + 1);
+    }
   };
 
   return (

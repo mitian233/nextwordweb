@@ -1,0 +1,15 @@
+{
+        "en": {
+          "word": "impact",
+          "pronunciation": "/ˈimpækt/",
+          "sentence": "The impact of the storm was so severe that it knocked down trees and power lines all over the city.",
+          "paragraphs": "Impact is a noun that refers to the effect or influence something has on a situation or person. It can also be used to describe the physical force of one object hitting another."
+        },
+        "zh": {
+          "word": "影响",
+          "pronunciation": "/yǐngxiǎng/",
+          "sentence": "风暴的影响非常严重，以至于它把整个城市的树木和电线都吹倒了。",
+          "paragraphs": "影响是一个名词，指的是某事物对情况或个人产生的影响或作用。它也可以用来描述一个物体撞击另一个物体的物理力。"
+        },
+        "gifUrl":  "/assets/video/impact.gif"
+    }

@@ -4,7 +4,7 @@ import React from "react";
 
 import "./index.css";
 import ULearnSegment from "@/components/ULearnSegment";
-import { GiphyGIF } from "@/const/UImage";
+// import { GiphyGIF } from "@/const/UImage";
 import Image from "next/image";
 
 interface MainBottomProps {
@@ -20,10 +20,10 @@ const MainBottom: React.FC<MainBottomProps> = ({ content }) => {
             <div className="flex flex-col md:flex-row gap-2">
               <div className="w-full md:w-2/3 flex-1">
                 <Image
-                  src={GiphyGIF.src}
+                  src={content.gifUrl}
                   alt="Context Image"
-                  width={GiphyGIF.width}
-                  height={GiphyGIF.height}
+                  width={400}
+                  height={300}
                 />
               </div>
               <div className="md:right_content w-full md:w-1/3 flex-auto">

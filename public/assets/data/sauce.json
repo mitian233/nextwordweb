@@ -1,0 +1,15 @@
+{
+    "en": {
+      "word": "sauce",
+      "pronunciation": "/sɔːs/",
+      "sentence": "She added a splash of tomato sauce to her pasta to give it a burst of flavor.",
+      "paragraphs": "Sauce is a noun that refers to a liquid or semi-liquid mixture that is used to add flavor to food. It can be made from a variety of ingredients and is often used in cooking to enhance the taste of dishes."
+    },
+    "zh": {
+      "word": "酱料",
+      "pronunciation": "/jiàngliao/",
+      "sentence": "她往意大利面里加了一点番茄酱料，让味道更加鲜美。",
+      "paragraphs": "酱料是一个名词，指的是用来给食物增添风味的液体或半液体混合物。它可以由各种成分制成，通常用于烹饪中以增强菜肴的味道。"
+    },
+    "gifUrl":  "/assets/video/sauce.gif"
+  }

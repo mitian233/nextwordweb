@@ -1,3 +1,3 @@
-import GiphyGIF from "../../public/assets/video/giphy.gif";
+// import GiphyGIF from "../../public/assets/video/giphy.gif";
 
-export { GiphyGIF };
+// export { GiphyGIF };
