@@ -9,6 +9,9 @@ import {
   IJoystickUpdateEvent,
   Joystick,
 } from "react-joystick-component/build/lib/Joystick";
+import {getWordData} from "@/app/(functional)/api/word/route";
+import {wordDataAtom} from "@/lib/atom";
+import {useAtom} from "jotai";
 
 const UJoystick: React.FC = () => {
   const {
@@ -91,8 +94,11 @@ const UJoystick: React.FC = () => {
     },
   });
 
-  const handleJoystickStop = (event: IJoystickUpdateEvent) => {
+  const [wordData, setWordData] = useAtom(wordDataAtom);
+
+  const handleJoystickStop = async (event: IJoystickUpdateEvent) => {
     if (event.type === "stop") {
+      let data
       switch (direction) {
         case "FORWARD":
           console.log("FORWARD");
@@ -110,13 +116,18 @@ const UJoystick: React.FC = () => {
           break;
         case "RIGHT":
           console.log("RIGHT");
+          data = await getWordData();
+          setWordData(data)
+          // console.log(data)
           // router.push("/learn/word");
 
           break;
         case "LEFT":
           console.log("LEFT");
+          data = await getWordData();
+          setWordData(data)
+          // console.log(data)
           // router.push("/learn/word");
-
           break;
         default:
           setDirection("");
