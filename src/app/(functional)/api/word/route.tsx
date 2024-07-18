@@ -18,6 +18,7 @@ export async function getWordData(request?: Request) {
 
       // },
       // body: data,
+      mode: "no-cors",
     });
     const data: WordJsonData = await res.json();
 

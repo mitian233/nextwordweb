@@ -1,6 +1,6 @@
 "use client";
 import { WordsContext } from "@/context/words";
-import { Word } from "@/lib/word";
+import { Word, WordJsonSchema } from "@/lib/word";
 import { useMutation } from "@tanstack/react-query";
 import { nanoid } from "nanoid";
 import { useRouter } from "next/navigation";
@@ -9,9 +9,9 @@ import {
   IJoystickUpdateEvent,
   Joystick,
 } from "react-joystick-component/build/lib/Joystick";
-import {getWordData} from "@/app/(functional)/api/word/route";
-import {wordDataAtom} from "@/lib/atom";
-import {useAtom} from "jotai";
+import { getWordData } from "@/app/(functional)/api/word/route";
+import { wordDataAtom } from "@/lib/atom";
+import { useAtom } from "jotai";
 
 const UJoystick: React.FC = () => {
   const {
@@ -98,7 +98,7 @@ const UJoystick: React.FC = () => {
 
   const handleJoystickStop = async (event: IJoystickUpdateEvent) => {
     if (event.type === "stop") {
-      let data
+      let data;
       switch (direction) {
         case "FORWARD":
           console.log("FORWARD");
@@ -117,7 +117,18 @@ const UJoystick: React.FC = () => {
         case "RIGHT":
           console.log("RIGHT");
           data = await getWordData();
-          setWordData(data)
+          console.log(data);
+          if (data instanceof Response) {
+            // 处理 Response 对象，例如进行数据解析
+            const parsedData: WordJsonData = await data.json();
+            setWordData(parsedData);
+          } else if (typeof data === "object" && data !== null) {
+            // 确保 data 是 WordJsonData 类型的对象
+            setWordData(data as WordJsonData);
+          } else {
+            // data 类型不正确，可以设置为 null，或者抛出错误
+            setWordData(null);
+          }
           // console.log(data)
           // router.push("/learn/word");
 
@@ -125,7 +136,18 @@ const UJoystick: React.FC = () => {
         case "LEFT":
           console.log("LEFT");
           data = await getWordData();
-          setWordData(data)
+          console.log(data);
+          if (data instanceof Response) {
+            // 处理 Response 对象，例如进行数据解析
+            const parsedData: WordJsonData = await data.json();
+            setWordData(parsedData);
+          } else if (typeof data === "object" && data !== null) {
+            // 确保 data 是 WordJsonData 类型的对象
+            setWordData(data as WordJsonData);
+          } else {
+            // data 类型不正确，可以设置为 null，或者抛出错误
+            setWordData(null);
+          }
           // console.log(data)
           // router.push("/learn/word");
           break;
@@ -133,8 +155,8 @@ const UJoystick: React.FC = () => {
           setDirection("");
           break;
       }
-      setDirection("");
     }
+    setDirection("");
   };
 
   return (

@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint"
   },
+  
   "dependencies": {
     "@videojs-player/react": "^1.0.0",
     "class-variance-authority": "^0.7.0",

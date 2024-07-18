@@ -1,0 +1,92 @@
+{
+  "Next Word": {
+    "en": {
+      "word": "Next Word",
+      "pronunciation": "/nekst wɜːd/",
+      "sentence": "Next Word: Elevate your English vocabulary with AI-powered learning.",
+      "paragraphs": "Next Word is an innovative English learning software designed to revolutionize the way individuals enhance their vocabulary. Next Word is an innovative English learning software designed to revolutionize the way individuals enhance their vocabulary."
+    },
+    "zh": {
+      "word": "下一个词",
+      "pronunciation": "/xià yī gè cí/",
+      "sentence": "下一个词：利用人工智能提升您的英语词汇量。下一个词是一款创新的英语学习软件，利用人工智能增强您的词汇。它能根据您的学习节奏进行个性化调整，提供个性化的词汇推荐和吸引人的练习，以提高您的语言水平。",
+      "paragraphs": "下一个词是一款旨在革新个人词汇增强方式的创新英语学习软件。它由先进的人工智能算法驱动，展现了技术与教育完美融合的成果。"
+    },
+    "gifUrl": ""
+  },
+  "illustrate": {
+    "en": {
+      "word": "illustrate",
+      "pronunciation": "/ˈiləstreit/",
+      "sentence": "The teacher used a colorful diagram to illustrate the water cycle in class.",
+      "paragraphs": "Illustrate is a verb that means to clarify or explain something by using a diagram, picture, or example. It is commonly used in educational settings to help students understand complex concepts."
+    },
+    "zh": {
+      "word": "展示",
+      "pronunciation": "/zhǎnshì/",
+      "sentence": "老师在课堂上使用了一张彩色图表来展示水循环。",
+      "paragraphs": "展示是一个动词，意为通过使用图表、图片或示例来阐明或解释某事。它通常用于教育环境，帮助学生理解复杂的概念。"
+    },
+    "gifUrl": ""
+  },
+  "impact": {
+    "en": {
+      "word": "impact",
+      "pronunciation": "/ˈimpækt/",
+      "sentence": "The impact of the storm was so severe that it knocked down trees and power lines all over the city.",
+      "paragraphs": "Impact is a noun that refers to the effect or influence something has on a situation or person. It can also be used to describe the physical force of one object hitting another."
+    },
+    "zh": {
+      "word": "影响",
+      "pronunciation": "/yǐngxiǎng/",
+      "sentence": "风暴的影响非常严重，以至于它把整个城市的树木和电线都吹倒了。",
+      "paragraphs": "影响是一个名词，指的是某事物对情况或个人产生的影响或作用。它也可以用来描述一个物体撞击另一个物体的物理力。"
+    },
+    "gifUrl": ""
+  },
+  "sauce": {
+    "en": {
+      "word": "sauce",
+      "pronunciation": "/sɔːs/",
+      "sentence": "She added a splash of tomato sauce to her pasta to give it a burst of flavor.",
+      "paragraphs": "Sauce is a noun that refers to a liquid or semi-liquid mixture that is used to add flavor to food. It can be made from a variety of ingredients and is often used in cooking to enhance the taste of dishes."
+    },
+    "zh": {
+      "word": "酱料",
+      "pronunciation": "/jiàngliao/",
+      "sentence": "她往意大利面里加了一点番茄酱料，让味道更加鲜美。",
+      "paragraphs": "酱料是一个名词，指的是用来给食物增添风味的液体或半液体混合物。它可以由各种成分制成，通常用于烹饪中以增强菜肴的味道。"
+    },
+    "gifUrl": ""
+  },
+  "scarce": {
+    "en": {
+      "word": "scarce",
+      "pronunciation": "/skeəs/",
+      "sentence": "During the drought, clean drinking water became scarce in the village.",
+      "paragraphs": "Scarce is an adjective that describes something that is not available in large amounts or is difficult to find. It is often used to highlight the limited availability of resources or goods."
+    },
+    "zh": {
+      "word": "稀缺",
+      "pronunciation": "/xīquē/",
+      "sentence": "在干旱期间，村庄里的清洁饮用水变得稀缺。",
+      "paragraphs": "稀缺是一个形容词，描述的是数量不多或难以找到的东西。它通常用来强调资源或商品的有限可用性。"
+    },
+    "gifUrl": ""
+  },
+  "castle": {
+    "en": {
+      "word": "castle",
+      "pronunciation": "/ˈkæsl/",
+      "sentence": "The majestic castle stood tall on the hill, overlooking the picturesque village below.",
+      "paragraphs": "Castle is a noun that refers to a large fortified building or complex of buildings typically built in the medieval period. It often symbolizes power and grandeur and is a common feature in historical and fantasy settings."
+    },
+    "zh": {
+      "word": "城堡",
+      "pronunciation": "/chéngbǎo/",
+      "sentence": "巍峨的城堡耸立在山丘上，俯瞰着下方如画的村庄。",
+      "paragraphs": "城堡是一个名词，指的是通常在中世纪建造的大型防御性建筑或建筑群。它常常象征着权力和宏伟，是历史和幻想背景中的常见元素。"
+    },
+    "gifUrl": ""
+  }
+}
