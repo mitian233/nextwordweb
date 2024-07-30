@@ -1,0 +1,16 @@
+{
+
+    "en": {
+      "word": "castle",
+      "pronunciation": "/ˈkæsl/",
+      "sentence": "The majestic castle stood tall on the hill, overlooking the picturesque village below.",
+      "paragraphs": "Castle is a noun that refers to a large fortified building or complex of buildings typically built in the medieval period. It often symbolizes power and grandeur and is a common feature in historical and fantasy settings."
+    },
+    "zh": {
+      "word": "城堡",
+      "pronunciation": "/chéngbǎo/",
+      "sentence": "巍峨的城堡耸立在山丘上，俯瞰着下方如画的村庄。",
+      "paragraphs": "城堡是一个名词，指的是通常在中世纪建造的大型防御性建筑或建筑群。它常常象征着权力和宏伟，是历史和幻想背景中的常见元素。"
+    },
+    "gifUrl": "/assets/video/castle.gif"
+  }
